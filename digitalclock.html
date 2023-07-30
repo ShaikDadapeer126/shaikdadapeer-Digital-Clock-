@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+    padding: 30px 500px;
+    background-color: blue;
+    font-size: 50px;
+    font-weight: bolder;
+    /* font-family: 'Courier New', Courier, monospace; */
+    color: white;
+    box-shadow: 5px 5px rgb(163, 163, 171);
+    font-style: italic;
+    }
+    .hi{
+    width: 200px;
+    padding: 50px 20px;
+    background-color: red;
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    margin: 100px 600px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 20px 20px 10px gray;
+    /* font-style: italic; */
+    }
+    </style>
+</head>
+<body onload="setInterval(digitalClock,1000)">
+   <div class="header">
+        Default Clock
+   </div>
+    <div class="hi" >
+        <div>
+            <span>00</span> :
+            <span>00</span> : 
+            <span>00</span> 
+        </div>
+        <div>
+            <span>00</span> :
+            <span>00</span> :
+            <span>0000</span> 
+        </div>
+        <div>
+           <span> Default day</span>            
+        </div>
+    </div>
+
+
+    <script>
+        function digitalClock()
+{
+    let dateObj = new Date()
+    /*------Time-------*/
+
+    let curhours = dateObj.getHours()
+    let curMin = dateObj.getMinutes()
+    let cursec = dateObj.getSeconds()
+
+    let selectedElem = document.getElementsByTagName('span')
+    // selectedElem[0].innerText = curhours;
+    selectedElem[0].innerText=curhours
+    selectedElem[1].innerText = curMin;
+    selectedElem[2].innerText = cursec;
+
+    let curDate = dateObj.getDate()
+    let curmon = dateObj.getMonth()+1
+    let curYear = dateObj.getFullYear()
+
+
+    selectedElem[3].innerText = curDate;
+    selectedElem[4].innerText = curmon;
+    selectedElem[5].innerText = curYear;
+
+
+    let curDay = dateObj.getDay()
+    curDay="sunday"
+    switch(curDay)
+    {
+        case 6 : 
+        break;
+
+    } 
+    selectedElem[6].innerText =curDay
+}
+    </script>
+</body>
+</html>
